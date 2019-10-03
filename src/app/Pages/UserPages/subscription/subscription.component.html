@@ -1,0 +1,69 @@
+<div class="row"> 
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="app-page-title app-page-title2">
+  <div class="page-title-wrapper">
+    <div class="page-title-heading page-title-headingcen">
+      <!--<div class="page-title-icon">
+        <i class="icon pe-7s-user icon-gradient bg-tempting-azure"></i>
+      </div> -->
+      <div>
+        Subscription
+        <div
+          class="page-title-subheading">
+          You can pay for the Viewly One service with the
+          <a href="https://etherscan.io/token/0xf03f8d65bafa598611c3495124093c56e8f638f0"
+             target="_blank">Viewly ERC-20 token</a>.
+          <br>
+          The token can be purchased on <a href="https://idex.market/eth/view" target="_blank">IDEX</a>
+          or <a href="https://www.livecoin.net/en/trading/VIEW_BTC"
+                target="_blank">Livecoin</a> exchange.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<div class="row"> 
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card-shadow-primary card-border text-white mb-3 card bg-dark card-shadow-primaryhover">
+        <div class="dropdown-menu-header">
+          <div class="dropdown-menu-header-inner bg-dark">
+            <div class="menu-header-content">
+              <div class="avatar-icon-wrapper mb-3 avatar-icon-xl">
+                <div class="avatar-icon">
+                  <img src="/assets/images/logo-token.png" alt="Avatar 5"></div>
+              </div>
+              <div *ngIf="userService.user.subscriber"><h6>Balance: </h6>
+                  <h5 class="menu-header-title">{{userService.user.balance | number}} VIEW tokens</h5>
+              </div>
+              <h6 class="menu-header-subtitle">
+                Current tier: <b>{{userService.user.subscriber ? 'Full Access' : 'Demo'}}</b>
+              </h6>
+              <p class="mt-3" *ngIf="userService.user.subscriber">
+              You have full access until {{userService.user.subscription_expiration | date: 'dd.MM.yyyy'}}.
+              </p>
+              <p class="mt-3" *ngIf="!userService.user.subscriber">
+              To upgrade your account and get full access to all of the dashboards, <br>
+              please deposit {{userService.viewRequired | number}} VIEW tokens to the address below.<br>
+              Your membership will be active for 1 year.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center d-block card-footer" *ngIf="!userService.user.subscriber">
+          <p>Your personal deposit address: <br><b><a href="https://etherscan.io/address/{{userService.user.eth_address}}" target="_blank">{{userService.user.eth_address}}</a></b></p>
+          <button [disabled]="!enabled" type="button" class="btn-shadow d-inline-flex align-items-center btn btn-info" (click)="refreshBalance()">
+          <fa class="mr-2" name="refresh"></fa>
+            I have paid
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+ 
+</div>

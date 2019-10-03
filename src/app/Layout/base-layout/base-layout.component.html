@@ -1,0 +1,16 @@
+<div class='app-container app-theme-white'>
+  <app-header></app-header>
+  <!--<app-sidebar></app-sidebar>-->
+  <div class="app-main__outer" style="padding-left: 0!important;">
+    <div [class.app-main__inner]="userService.activePanel !== 'dashboard'">
+      <div>
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
+    </div>
+    <!-- <app&#45;footer></app&#45;footer> -->
+  </div>
+  <!--<app-options-drawer></app-options-drawer>-->
+  <!--<app-drawer></app-drawer>-->
+  <!--<div class="sidebar-menu-overlay" (click)="toggleSidebarMobile()"></div>-->
+</div>
+<!--<ngx-loading-bar [color]="'var(&#45;&#45;primary)'"></ngx-loading-bar>-->

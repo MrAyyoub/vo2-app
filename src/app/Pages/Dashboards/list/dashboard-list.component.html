@@ -1,0 +1,62 @@
+<div *ngFor="let dash of userService.activeDashboards" [hidden]="userService.activePanel !== 'dashboard'">
+  <app-dashboard [id]="dash.id" [hidden]="dash.id !== userService.activeDashboardId"></app-dashboard>
+</div>
+<div *ngIf="userService.activePanel == 'list'">
+  <app-page-title [heading]="heading" [subheading]="subheading" [icon]="icon"></app-page-title>
+  <div class="row" *ngFor="let db of userService.dashboards">
+    <div class="col-sm-12" *ngIf="!db.paid || (userService.user.subscriber && db.paid)">
+
+      <div class="card-hover-shadow-2x mb-3 card">
+        <div class="card-header-tab card-header">
+          <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
+            class="header-icon lnr-database icon-gradient bg-malibu-beach"> </i>{{db.title}}
+          </div>
+        </div>
+        <div class="scroll-area-lg">
+          <perfect-scrollbar [autoPropagation]="true">
+            <ul class="todo-list-wrapper list-group list-group-flush">
+
+              <li class="list-group-item" *ngFor="let dashboard of db.children" [class.disabled-db]="dashboard.paid && !userService.user.subscriber" (click)="activateDashboard(content, dashboard)">
+                <div class="todo-indicator" [ngClass]="dashboard.paid && !userService.user.subscriber ? 'bg-purple' : 'bg-primary'"></div>
+                <div class="widget-content p-0">
+                  <div class="widget-content-wrapper">
+                    <div class="widget-content-left mr-2">
+                      <div *ngIf="dashboard.paid && !userService.user.subscriber" class="pe-7s-lock icon"></div>
+                    </div>
+                    <!--<div class="widget-content-left flex2" (click)="premiumWarn(content, dashboard)" [routerLink]="(dashboard.paid && !userService.user.subscriber) ? [''] : ['dashboard', dashboard.id]">-->
+                    <!--<div class="widget-content-left flex2" (click)="premiumWarn(content, dashboard)">-->
+                    <div class="widget-content-left flex2">
+                      <div class="widget-heading">{{dashboard.name}}</div>
+                      <div class="widget-subheading">{{dashboard.description}}</div>
+
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </perfect-scrollbar>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Please upgrade your account</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>This dashboard is for paid members only. 
+    <br>
+    You can get the full access <a routerLink="/subscription" (click)="c()">here</a>.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c()">Close</button>
+  </div>
+</ng-template>

@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Viewly One",
+    "children": [
+      {
+        "id": "crypto-compare",
+        "name": "Returns",
+        "description": "Compare asset returns, correlations and holding profitability.",
+        "iframeUrl": "https://sapientia.shinyapps.io/CryptoCompare-Shiny/"
+      },
+      {
+        "id": "correlations",
+        "name": "Correlations",
+        "description": "Track the pairwise correlations of years, months and weeks.",
+        "iframeUrl": "https://sapientia.shinyapps.io/Correlations-Shiny/"
+      },
+      {
+        "id": "google-trends",
+        "name": "Google Trends",
+        "description": "Compare any search term with underlying price moves of related assets.",
+        "iframeUrl": "https://sapientia.shinyapps.io/Google-Trends-Shiny/"
+      },
+      {
+        "id": "social-compare",
+        "name": "Social Compare",
+        "description": "Relative strength of different crypto communities.",
+        "iframeUrl": "https://sapientia.shinyapps.io/SocialCompare-Shiny/",
+        "paid":  true
+      },
+      {
+        "id": "alexa",
+        "name": "Alexa",
+        "description": "Alexa traffic estimates for exchanges, news sites, etc.",
+        "iframeUrl": "https://sapientia.shinyapps.io/Alexa-Shiny/",
+        "paid": true
+      },
+      {
+        "id": "tether",
+        "name": "Tether and Stablecoins",
+        "description": "Correlations between stablecoins and crypto.",
+        "iframeUrl": "https://sapientia.shinyapps.io/Alexa-Shiny/",
+        "paid": true
+      },
+      {
+        "id": "inverse-amounts",
+        "name": "Inverse Amounts",
+        "description": "How many of an altcoin does 1 BTC buy over time.",
+        "iframeUrl": "https://sapientia.shinyapps.io/Inverse-Amounts-Shiny/",
+        "paid": true
+      }
+    ]
+  },
+  {
+    "title": "Third party",
+    "paid": true,
+    "children": [
+      {
+        "id": "crypto-compare",
+        "name": "Returns",
+        "description": "Compare asset returns, correlations and holding profitability.",
+        "iframeUrl": "https://sapientia.shinyapps.io/CryptoCompare-Shiny/"
+      }
+    ]
+  }
+
+]

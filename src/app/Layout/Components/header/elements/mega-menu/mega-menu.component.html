@@ -1,0 +1,34 @@
+<ul class="header-megamenu nav">
+  <li class="nav-item" (click)="navigate()" routerLink="/">
+    <button  placement="bottom-left" popoverClass="rm-max-width" type="button" class="btn btn-link">
+      <span>
+        <i class="nav-link-icon pe-7s-graph1"></i>
+        {{userService.navEnabled ? 'Dashboards' : 'Loading..'}}
+      </span>
+    </button>
+  </li>
+  <li class="nav-item" routerLink="/subscription" *ngIf="!userService.user.subscriber">
+    <button  placement="bottom-left" popoverClass="rm-max-width" type="button" class="btn btn-link">
+      <span class="purple font-weight-bold">
+        <i class="nav-link-icon pe-7s-gleam purple font-weight-bold"></i>
+        Get Full Access
+      </span>
+    </button>
+  </li>
+</ul>
+
+
+<!--<ng-template #headerMegaPopover>-->
+  <!--<div class="dropdown-mega-menu">-->
+    <!--<div class="grid-menu grid-menu-3col">-->
+      <!--<div class="no-gutters row">-->
+        <!--<div class="col-sm-6 col-xl-4" *ngFor="let panel of dashboards">-->
+          <!--<ul class="nav flex-column">-->
+            <!--<li class="nav-item-header nav-item">{{panel.title}}</li>-->
+            <!--<li *ngFor="let dashboard of panel.children" class="nav-item"><a [routerLink]="dashboard.vUrl" class="nav-link"><i class="nav-link-icon lnr-inbox"></i><span>{{dashboard.name}}</span></a></li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</ng-template>-->

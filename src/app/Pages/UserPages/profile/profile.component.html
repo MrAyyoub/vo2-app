@@ -1,0 +1,58 @@
+<app-page-title [heading]="'Profile'"
+                [subheading]="'Edit your profile info here'"
+                [icon]="'pe-7s-user icon-gradient bg-tempting-azure'"></app-page-title>
+<div class="row">
+  <div class="col-md-4">
+    <div class="main-card mb-3 card">
+      <div class="card-header">
+        Info
+      </div>
+      <form style="padding: 20px" (ngSubmit)="updateInfo()">
+        <div class="position-relative form-group"><label
+          for="firstName">Name</label><input
+          [(ngModel)]="userService.user.first_name"
+          name="firstName"
+          id="firstName"
+          class="form-control">
+        </div>
+
+        <button class="mt-1 btn btn-primary" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-8"></div>
+  <div class="col-md-4">
+    <div class="main-card mb-3 card">
+      <div class="card-header">
+        Change password
+      </div>
+      <form style="padding: 20px" (ngSubmit)="changePassword()">
+        <div class="position-relative form-group"><label
+          for="firstName">Current password</label><input
+          [(ngModel)]="userService.user.password"
+          type="password"
+          name="password"
+          class="form-control">
+        </div>
+        <div class="position-relative form-group"><label
+          for="firstName">New password</label><input
+          [(ngModel)]="userService.user.new_password"
+          type="password"
+          name="new_password"
+          class="form-control">
+        </div>
+        <div class="position-relative form-group"><label
+          for="firstName">Confirm new password</label><input
+          [(ngModel)]="userService.user.confirmPassword"
+          type="password"
+          name="confirm_password"
+          class="form-control">
+        </div>
+        <div>
+          <p class="red" *ngFor="let message of errorMessages">{{message}}</p>
+        </div>
+        <button class="mt-1 btn btn-primary" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
