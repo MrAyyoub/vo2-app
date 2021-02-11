@@ -33,7 +33,7 @@
     "angular-font-awesome": "^3.1.2",
     "angular-svg-round-progressbar": "^2.0.0",
     "animate-sass": "^0.8.2",
-    "apexcharts": "^3.6.5",
+    "apexcharts": "^3.24.0",
     "bootstrap": "4.2.1",
     "core-js": "^2.6.5",
     "date-fns": "^1.30.1",
